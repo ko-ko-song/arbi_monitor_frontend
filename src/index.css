@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.assignedRole {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.grayBox {
+  background-color: gray;
+  text-align: center;
+}
+
+.simple_border {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.agentsData {
+  display: flex;
+  width: 1200px;
+  height: 800px;
+  background-color: rgb(215, 201, 201);
+}
+
+.scroll-container-a {
+  overflow: auto;
+  height: 200px;
+}
+.scroll-container-b {
+  overflow: auto;
+  height: 400px;
+}
+
+.agentTab{
+  min-width: 150px;
+}
+
+.nav_bar{
+  width: auto;
+  min-height: 50px;
+}
