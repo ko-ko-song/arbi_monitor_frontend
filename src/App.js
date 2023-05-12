@@ -6,6 +6,7 @@ import RoleAssignData from "./component/RoleAssignData";
 import RootsData from "./component/RootsData";
 import Agent from "./class/Agent";
 import Role from "./class/Role";
+import RoleService from "./class/RoleService";
 
 const WebSocketURL = "ws://127.0.0.1:42000"; // 웹 소켓 URL을 입력하세요.
 
@@ -18,6 +19,7 @@ const App = () => {
   const [roleAsginData, setRoleAsignData] = useState([]);
   const [semanticMapData, setSemanticMapData] = useState([]);
   const [roleData, setRoleData] = useState(new Map());
+  const [roleServiceData, setRoleServiceData] = useState(new Map());
   // const [dataMap, setDataMap] = useState(new Map());
   const tabList = ["Agent", "RoOTS 변환", "Role 할당 과정", "SemanticMap"];
 
@@ -116,6 +118,23 @@ const App = () => {
             });
           });
         }
+      } else if (action === "RoleServiceSpecification") {
+        if (content.roleServiceList != undefined) {
+          content.roleServiceList.forEach(roleService => {
+            const newRoleService = new RoleService();
+            newRoleService.contextList      = roleService.contextList;
+            newRoleService.policyList       = roleService.policyList;
+            newRoleService.roleServiceName  = roleService.roleServiceName;
+            newRoleService.taskList         = roleService.taskList;
+            newRoleService.knowledgeList    = roleService.knowledgeList;
+            newRoleService.workflow         = roleService.workflow;
+            setRoleServiceData(prevData => {
+              const newMap = new Map(prevData);
+              newMap.set(newRoleService.roleServiceName, newRoleService);
+              return newMap;
+            });
+          });
+        }
       } else if(action === "AssignRole"){
         let agentName = content.agentName;
         let roleName = content.roleName;
@@ -170,7 +189,7 @@ const App = () => {
         ))}
       </nav> 
       {selectedTab === "Agent" && <AgentData agentsData={agentsData}/>}
-      {selectedTab === "RoOTS 변환" && <RootsData />}
+      {selectedTab === "RoOTS 변환" && <RootsData rolesData = {roleData} roleServicesData = {roleServiceData} />}
       {selectedTab === "Role 할당 과정" && <RoleAssignData />}
       {selectedTab === "SemanticMap" && <SemanticMapData />}
       {/* <TabData dataList={dataMap.get(selectedTab) || []} /> */}

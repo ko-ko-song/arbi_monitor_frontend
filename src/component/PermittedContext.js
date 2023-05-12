@@ -1,12 +1,12 @@
 function PermittedContext({ data }) {
     return (
         <div className="permittedContext">
-            <div className="grayBox simple_border">
+            <div className="content_title">
                 PermittedContext
             </div>
-            <div>
+            <div className="content_container">
                 {data?.map((item) => (
-                    <div className="simple_border" key={item} >{item} </div>
+                    <div className="content" key={item} >{item} </div>
                 ))}
             </div>
         </div>

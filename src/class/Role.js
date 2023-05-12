@@ -1,12 +1,12 @@
 class Role {
   constructor() {
-    this.permssionRead = [];
+    this.permissionRead = [];
+    this.permissionCreate = [];
+    this.permissionChange = [];
     this.safety = [];
     this.skill = [];
     this.roleName = '';
     this.liveness = [];
-    this.permissionCreate = [];
-    this.permissionChange = [];
     this.interactionsAndActivites = [];
   }
 }

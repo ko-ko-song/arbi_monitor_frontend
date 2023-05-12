@@ -31,9 +31,8 @@ code {
 
 .agentsData {
   display: flex;
-  width: 1200px;
+  min-width: 1200px;
   height: 800px;
-  background-color: rgb(215, 201, 201);
 }
 
 .scroll-container-a {
@@ -52,4 +51,39 @@ code {
 .nav_bar{
   width: auto;
   min-height: 50px;
+}
+
+.content_container{
+  border: 1px solid black;
+  text-align: center;
+  width: auto;
+}
+
+.content_title{
+  background-color: gray;
+  text-align: center;
+  min-width: 250px;
+  padding: 5px;
+  width: auto;
+  height: auto;
+}
+
+.content {
+  border: 1px solid black;
+  padding: 5px;
+  width: auto;
+}
+
+.title{
+  background-color: skyblue;
+  text-align: center;
+  min-width: 250px;
+  padding: 5px;
+  width: auto;
+  height: auto;
+}
+
+.permission_little_content{
+  font-size: large;
+  font-weight: 600;
 }
